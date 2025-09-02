@@ -3,25 +3,46 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "next lint",
+    "websocket": "npm exec -- y-websocket --port 1234",
+    "webrtc-signaling": "node webrtc-signaling-server.js",
+    "dev:collaboration": "concurrently \"npm run dev\" \"npm run websocket\"",
+    "dev:full": "concurrently \"npm run dev\" \"npm run websocket\" \"npm run webrtc-signaling\""
   },
   "dependencies": {
+    "autoprefixer": "^10.4.21",
+    "canvas": "^3.2.0",
+    "konva": "^9.3.22",
+    "lucide-react": "^0.542.0",
+    "next": "15.5.2",
+    "pdf2pic": "^3.2.0",
+    "pdfjs-dist": "^5.4.54",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.5.2"
+    "react-dropzone": "^14.3.8",
+    "react-konva": "^19.0.7",
+    "web-vitals": "^5.1.0",
+    "ws": "^8.18.3",
+    "y-indexeddb": "^9.0.12",
+    "y-protocols": "^1.0.6",
+    "yjs": "^13.6.27"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4.1.12",
+    "@types/node": "^20.19.11",
+    "@types/react": "^19.1.11",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "@types/ws": "^8.18.1",
+    "@y/websocket-server": "^0.1.1",
+    "concurrently": "^9.2.1",
     "eslint": "^9",
     "eslint-config-next": "15.5.2",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "y-websocket": "^3.0.0"
   }
 }
